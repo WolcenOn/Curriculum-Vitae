@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio y currículum vitae de Francisco Haldón Redondo: telecomunicaciones, redes, electrónica, WiFi, FTTH, radioenlaces y formación ASIR." />
+  <title>Francisco Haldón Redondo | Portfolio & CV</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: rgba(15, 23, 42, 0.86);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --brand: #38bdf8;
+      --brand-2: #22c55e;
+      --accent: #a78bfa;
+      --border: rgba(148, 163, 184, 0.22);
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --panel: rgba(255, 255, 255, 0.94);
+      --text: #0f172a;
+      --muted: #475569;
+      --brand: #0284c7;
+      --brand-2: #16a34a;
+      --accent: #7c3aed;
+      --border: rgba(15, 23, 42, 0.12);
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.28), transparent 34rem),
+        radial-gradient(circle at top right, rgba(167, 139, 250, 0.20), transparent 31rem),
+        linear-gradient(135deg, var(--bg), var(--bg));
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { padding-left: 1.1rem; }
+    li + li { margin-top: 0.35rem; }
+    .container { width: min(100% - 32px, var(--max)); margin: 0 auto; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: -0.03em; }
+    .logo-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      box-shadow: 0 14px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 18px; color: var(--muted); font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-actions { display: flex; align-items: center; gap: 10px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text);
+      background: var(--panel);
+      cursor: pointer;
+      font: inherit;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--brand) 60%, var(--border)); }
+    .btn-primary { border-color: transparent; background: linear-gradient(135deg, var(--brand), var(--accent)); color: white; font-weight: 750; }
+
+    .hero { padding: 84px 0 48px; }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 34px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: var(--panel);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+    }
+
+    .pulse {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--brand-2);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--brand-2) 18%, transparent);
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 6vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead { max-width: 780px; color: var(--muted); font-size: clamp(1.06rem, 2vw, 1.23rem); margin-bottom: 28px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .profile-card {
+      position: relative;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -70px -70px auto auto;
+      width: 190px;
+      height: 190px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--brand) 25%, transparent);
+      filter: blur(8px);
+    }
+
+    .avatar {
+      position: relative;
+      width: 112px;
+      height: 112px;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      font-size: 2.4rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .profile-card h2 { font-size: 1.35rem; margin-bottom: 8px; }
+    .profile-card p { color: var(--muted); }
+    .contact-list { display: grid; gap: 10px; margin-top: 20px; }
+    .contact-list a, .contact-list span { display: flex; align-items: center; gap: 10px; color: var(--muted); word-break: break-word; }
+    .contact-list a:hover { color: var(--text); }
+
+    section { padding: 48px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+    .section-kicker { color: var(--brand); font-size: 0.86rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+    h2.section-title { font-size: clamp(1.7rem, 3vw, 2.7rem); line-height: 1.08; letter-spacing: -0.04em; }
+    .muted { color: var(--muted); }
+    .grid { display: grid; gap: 18px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+      padding: 24px;
+    }
+
+    .stat { font-size: 2.15rem; font-weight: 900; letter-spacing: -0.05em; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+    .tag {
+      padding: 7px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      background: color-mix(in srgb, var(--panel) 75%, transparent);
+      font-size: 0.9rem;
+    }
+
+    .cv-layout { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 18px; }
+
+    .skills { display: grid; gap: 14px; }
+    .skill { display: grid; gap: 8px; }
+    .skill-top { display: flex; justify-content: space-between; gap: 12px; font-weight: 700; }
+    .bar { height: 10px; border-radius: 999px; background: color-mix(in srgb, var(--muted) 18%, transparent); overflow: hidden; }
+    .bar span { display: block; height: 100%; width: var(--level); border-radius: inherit; background: linear-gradient(90deg, var(--brand), var(--brand-2)); }
+
+    .timeline { display: grid; gap: 18px; }
+    .timeline-item {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 142px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+      border: 0;
+      background: transparent;
+      color: var(--text);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .accordion-trigger:hover { background: color-mix(in srgb, var(--brand) 8%, transparent); }
+    .timeline-date { color: var(--brand); font-weight: 800; }
+    .accordion-title { font-size: 1.12rem; font-weight: 800; letter-spacing: -0.02em; }
+    .accordion-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--brand);
+      font-weight: 900;
+    }
+
+    .accordion-panel { display: none; padding: 0 22px 22px 182px; }
+    .accordion-item.active .accordion-panel { display: block; }
+    .timeline-item h3 { margin-bottom: 8px; font-size: 1.15rem; }
+    .timeline-item ul { color: var(--muted); }
+
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .filter-btn.active { background: linear-gradient(135deg, var(--brand), var(--accent)); color: white; border-color: transparent; }
+    .project-card { display: grid; gap: 14px; }
+    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      place-items: center;
+      border-radius: 16px;
+      background: color-mix(in srgb, var(--brand) 16%, transparent);
+      border: 1px solid var(--border);
+      font-size: 1.35rem;
+    }
+
+    .download-panel { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .note { border-left: 3px solid var(--brand); padding-left: 14px; margin-top: 16px; }
+    footer { padding: 34px 0 54px; color: var(--muted); text-align: center; }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-3, .cv-layout { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-inner { align-items: flex-start; }
+      .accordion-trigger { grid-template-columns: 1fr auto; }
+      .accordion-trigger .timeline-date { grid-column: 1 / -1; }
+      .accordion-panel { padding: 0 22px 22px; }
+    }
+
+    @media print {
+      body { background: white; color: #111827; }
+      .navbar, .hero-actions, .filters, .download-panel, footer { display: none !important; }
+      section, .hero { padding: 18px 0; }
+      .card, .timeline-item, .profile-card { box-shadow: none; background: white; border-color: #d1d5db; break-inside: avoid; }
+      .container { width: 100%; }
+      .muted, .tag, .contact-list a, .contact-list span { color: #374151; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a class="logo" href="#inicio" aria-label="Ir al inicio">
+        <span class="logo-mark">FH</span>
+        <span>Francisco Haldón</span>
+      </a>
+      <div class="nav-links" aria-label="Navegación principal">
+        <a href="#perfil" data-i18n="navProfile">Perfil</a>
+        <a href="#competencias" data-i18n="navSkills">Competencias</a>
+        <a href="#experiencia" data-i18n="navExperience">Experiencia</a>
+        <a href="#portfolio" data-i18n="navPortfolio">Portfolio</a>
+        <a href="#cv" data-i18n="navCv">CV</a>
+      </div>
+      <div class="nav-actions">
+        <button class="btn" id="languageToggle" type="button" aria-label="Cambiar idioma a inglés">🌍 EN</button>
+        <button class="btn" id="themeToggle" type="button" aria-label="Cambiar modo claro u oscuro">🌗 Tema</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="eyebrow" data-i18n-html="eyebrow"><span class="pulse"></span> Telecomunicaciones · Redes · Electrónica · ASIR</div>
+        <h1 data-i18n-html="heroTitle">Técnico de campo con base sólida en <span class="gradient-text">telecomunicaciones y redes</span>.</h1>
+        <p class="lead" data-i18n-html="heroLead">
+          Soy Francisco Haldón Redondo. Cuento con una trayectoria consolidada en instalaciones de telecomunicaciones,
+          electrónica, WiFi, FTTH, ADSL, radioenlaces y soporte técnico de campo. Acabo de terminar primero de <strong>ASIR</strong>,
+          por lo que estoy reforzando mi perfil hacia sistemas, redes, servicios e infraestructuras IT sin perder el enfoque práctico
+          adquirido en entornos reales.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#experiencia" data-i18n="viewExperience">Ver experiencia</a>
+          <a class="btn" href="#cv" data-i18n="viewCv">Ver CV resumido</a>
+          <button class="btn" id="printBtn" type="button" data-i18n="print">Imprimir / guardar PDF</button>
+        </div>
+      </div>
+
+      <aside class="profile-card reveal" aria-label="Tarjeta de contacto profesional">
+        <div class="avatar">FH</div>
+        <h2>Francisco Haldón Redondo</h2>
+        <p data-i18n="role">Técnico de telecomunicaciones e instalaciones · Electrónica · Redes · ASIR</p>
+        <div class="contact-list">
+          <a href="https://www.linkedin.com/in/francisco-hald%C3%B3n-redondo-57b97761" target="_blank" rel="noreferrer">🔗 LinkedIn profesional</a>
+          <span>📍 Huelva, España</span>
+          <span>✉️ Email: fhaldon@gmail.com</span>
+          <span>☎️ 649 578 774</span>
+        </div>
+        <p class="note muted" data-i18n="privacy">Sin dirección completa, DNI ni datos personales innecesarios.</p>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="perfil">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker" data-i18n="profileKicker">Perfil profesional</p>
+            <h2 class="section-title" data-i18n="profileTitle">Experiencia técnica real y formación actual en sistemas.</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card reveal">
+            <div class="stat">20+</div>
+            <h3 data-i18n="stat1Title">Años de trayectoria técnica</h3>
+            <p class="muted" data-i18n="stat1Text">Experiencia en telecomunicaciones, instalaciones, electrónica, soporte y mantenimiento de redes.</p>
+          </article>
+          <article class="card reveal">
+            <div class="stat">1.º ASIR</div>
+            <h3 data-i18n="stat2Title">Formación reciente</h3>
+            <p class="muted" data-i18n="stat2Text">Primer curso de Administración de Sistemas Informáticos en Red finalizado, con enfoque en redes, sistemas y servicios.</p>
+          </article>
+          <article class="card reveal">
+            <div class="stat">CPD</div>
+            <h3 data-i18n="stat3Title">Especialización complementaria</h3>
+            <p class="muted" data-i18n="stat3Text">Formación en mantenimiento de infraestructuras de un Centro de Proceso de Datos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competencias">
+      <div class="container cv-layout">
+        <div class="card reveal">
+          <p class="section-kicker" data-i18n="skillsKicker">Competencias</p>
+          <h2 class="section-title" data-i18n="skillsTitle">Lo que puedo aportar</h2>
+          <p class="muted" data-i18n="skillsText">
+            Perfil técnico práctico, con mayor fortaleza en instalaciones y telecomunicaciones. En sistemas y CPD se muestra un nivel en progreso,
+            acorde con haber finalizado primero de ASIR y estar ampliando formación.
+          </p>
+          <div class="tag-row">
+            <span class="tag">FTTH</span>
+            <span class="tag">ADSL</span>
+            <span class="tag">WiFi</span>
+            <span class="tag">Radioenlaces</span>
+            <span class="tag">Ubiquiti</span>
+            <span class="tag">Cambium</span>
+            <span class="tag">GLPI</span>
+            <span class="tag">Alfresco</span>
+            <span class="tag">Electrónica</span>
+            <span class="tag">Soporte técnico</span>
+            <span class="tag">ASIR 1.º finalizado</span>
+            <span class="tag">CPD en formación</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="skills">
+            <div class="skill">
+              <div class="skill-top"><span data-i18n="skill1">Instalaciones de telecomunicaciones</span><span data-i18n="levelHigh">Alto</span></div>
+              <div class="bar"><span style="--level: 88%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span>FTTH, ADSL, WiFi y radioenlaces</span><span data-i18n="levelHigh2">Alto</span></div>
+              <div class="bar"><span style="--level: 84%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span data-i18n="skill3">Resolución de incidencias de campo</span><span data-i18n="levelHigh3">Alto</span></div>
+              <div class="bar"><span style="--level: 86%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span data-i18n="skill4">Redes y sistemas ASIR</span><span data-i18n="levelMid">Inicial / medio</span></div>
+              <div class="bar"><span style="--level: 52%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span data-i18n="skill5">Infraestructura CPD</span><span data-i18n="levelTraining">En formación</span></div>
+              <div class="bar"><span style="--level: 45%"></span></div>
+            </div>
+            <div class="skill">
+              <div class="skill-top"><span data-i18n="skill6">Diseño, imagen y modelado 3D</span><span data-i18n="levelComplementary">Complementario</span></div>
+              <div class="bar"><span style="--level: 70%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker" data-i18n="experienceKicker">Experiencia destacada</p>
+            <h2 class="section-title" data-i18n="experienceTitle">Trayectoria más relevante</h2>
+          </div>
+          <p class="muted" data-i18n="experienceText">Resumen centrado en puestos útiles para telecomunicaciones, redes, soporte técnico y sistemas.</p>
+        </div>
+
+        <div class="timeline accordion" id="experienceAccordion">
+          <article class="timeline-item reveal accordion-item active">
+            <button class="accordion-trigger" type="button" aria-expanded="true">
+              <span class="timeline-date">2023 - Actualidad</span>
+              <span class="accordion-title">Innovaciones Tecnológicas del Sur, S.L.U.</span>
+              <span class="accordion-icon">−</span>
+            </button>
+            <div class="accordion-panel">
+              <h3 data-i18n="exp1Role">Técnico de campo</h3>
+              <p class="muted">Huelva</p>
+              <ul>
+                <li data-i18n="exp1Item1">Replanteo y preauditoría de instalaciones WiFi para proyecto de la Junta de Andalucía.</li>
+                <li data-i18n="exp1Item2">Mediciones de cobertura y verificación de condiciones técnicas del proyecto.</li>
+                <li data-i18n="exp1Item3">Gestión documental en plataformas GLPI y Alfresco.</li>
+                <li data-i18n="exp1Item4">Trabajo de campo orientado a cumplimiento técnico, documentación y coordinación.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span class="timeline-date">2018 - 2022</span>
+              <span class="accordion-title">Avatel Telecom, S.L.U.</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <h3 data-i18n="exp2Role">Instalador y reparador de equipos telefónicos</h3>
+              <p class="muted" data-i18n="exp2Place">Ayamonte y entorno</p>
+              <ul>
+                <li data-i18n="exp2Item1">Instalación de líneas telefónicas, radioenlaces Ubiquiti y FTTH para WiHu.</li>
+                <li data-i18n="exp2Item2">Intervenciones en Isla Cristina, La Antilla, Ayamonte y alrededores.</li>
+                <li data-i18n="exp2Item3">Instalación de equipos Cambium para el programa Wifi4EU en Isla Cristina y Villablanca.</li>
+                <li data-i18n="exp2Item4">Coordinación con organismos públicos para implantación de instalaciones WiFi.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span class="timeline-date">2015 - 2018</span>
+              <span class="accordion-title">Ubikue, S.L.</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <h3 data-i18n="exp3Role">Instalador y reparador de equipos telefónicos</h3>
+              <p class="muted">Huelva</p>
+              <ul>
+                <li data-i18n="exp3Item1">Instalación de líneas telefónicas, radioenlaces Ubiquiti y FTTH.</li>
+                <li data-i18n="exp3Item2">Soporte técnico de campo en zonas de Huelva, Isla Cristina, La Antilla y Ayamonte.</li>
+                <li data-i18n="exp3Item3">Participación en desarrollo de hardware para transmisión de datos en tiempo real IoT.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span class="timeline-date">2013 - 2015</span>
+              <span class="accordion-title">COBRA Instalaciones y Servicios, S.A.</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <h3 data-i18n="exp4Role">Instalador y reparador</h3>
+              <p class="muted" data-i18n="exp4Place">Huelva y provincia</p>
+              <ul>
+                <li data-i18n="exp4Item1">Instalación de líneas telefónicas, ADSL y Televisión IP para Telefónica Movistar.</li>
+                <li data-i18n="exp4Item2">Mantenimiento de red de cobre en Huelva y provincia.</li>
+                <li data-i18n="exp4Item3">Resolución de averías y atención técnica en cliente final.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span class="timeline-date">2005 - 2006</span>
+              <span class="accordion-title">Sehutel, S.L.</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <h3 data-i18n="exp5Role">Instalador y reparador de equipos telefónicos</h3>
+              <p class="muted">Huelva</p>
+              <ul>
+                <li data-i18n="exp5Item1">Instalación de líneas telefónicas, Internet y Televisión IP para Telefónica.</li>
+                <li data-i18n="exp5Item2">Mantenimiento de repetidores de telefonía móvil para Orange.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal accordion-item">
+            <button class="accordion-trigger" type="button" aria-expanded="false">
+              <span class="timeline-date">2003 - 2005</span>
+              <span class="accordion-title">Sistemas de Oficinas de Huelva · Jump Ordenadores · Electrónica El Molino</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-panel">
+              <h3 data-i18n="exp6Role">Electrónica, informática y soporte técnico</h3>
+              <p class="muted">Huelva</p>
+              <ul>
+                <li data-i18n="exp6Item1">Instalación, reparación y mantenimiento de equipos Canon como servicio oficial.</li>
+                <li data-i18n="exp6Item2">Reparación y mantenimiento de equipos informáticos en punto de venta.</li>
+                <li data-i18n="exp6Item3">Prácticas en reparación de audio, vídeo y pequeños aparatos eléctricos.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker" data-i18n="portfolioKicker">Portfolio técnico</p>
+            <h2 class="section-title" data-i18n="portfolioTitle">Áreas de trabajo demostrables</h2>
+          </div>
+          <p class="muted" data-i18n="portfolioText">Enfocado a lo que ya has hecho y a tu evolución hacia sistemas.</p>
+        </div>
+
+        <div class="filters reveal" aria-label="Filtros de proyectos">
+          <button class="btn filter-btn active" type="button" data-filter="all" data-i18n="filterAll">Todos</button>
+          <button class="btn filter-btn" type="button" data-filter="telecom">Telecom</button>
+          <button class="btn filter-btn" type="button" data-filter="sistemas" data-i18n="filterSystems">Sistemas</button>
+          <button class="btn filter-btn" type="button" data-filter="cpd">CPD</button>
+        </div>
+
+        <div class="grid grid-3" id="projectGrid">
+          <article class="card project-card reveal" data-category="telecom">
+            <div class="project-top"><div class="icon">📡</div><span class="tag">Telecom</span></div>
+            <h3 data-i18n="project1Title">Despliegues WiFi y mediciones de cobertura</h3>
+            <p class="muted" data-i18n="project1Text">Replanteos, preauditorías, comprobaciones técnicas y documentación para instalaciones WiFi.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="telecom">
+            <div class="project-top"><div class="icon">🌐</div><span class="tag">FTTH / ADSL</span></div>
+            <h3 data-i18n="project2Title">Instalación y mantenimiento de conectividad</h3>
+            <p class="muted" data-i18n="project2Text">Instalación de líneas, resolución de incidencias, mantenimiento de red y soporte en cliente final.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="telecom">
+            <div class="project-top"><div class="icon">📶</div><span class="tag">Radioenlaces</span></div>
+            <h3 data-i18n="project3Title">Radioenlaces Ubiquiti y equipos Cambium</h3>
+            <p class="muted" data-i18n="project3Text">Instalación y puesta en servicio de equipos de conectividad inalámbrica en proyectos locales.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="sistemas">
+            <div class="project-top"><div class="icon">🤖</div><span class="tag">IA / Web</span></div>
+            <h3 data-i18n="project4Title">Portfolio de prototipos funcionales</h3>
+            <p class="muted" data-i18n="project4Text">Aplicaciones web creadas en GitHub con ayuda de IA, presentadas como prototipos funcionales con previews automáticas.</p>
+            <a class="btn" href="https://wolcenon.github.io/GithubWebPortfolio/" target="_blank" rel="noreferrer" data-i18n="externalPortfolio">Ver portfolio externo</a>
+          </article>
+
+          <article class="card project-card reveal" data-category="sistemas">
+            <div class="project-top"><div class="icon">🖥️</div><span class="tag">ASIR</span></div>
+            <h3 data-i18n="project5Title">Laboratorio de aprendizaje ASIR</h3>
+            <p class="muted" data-i18n="project5Text">Base en sistemas, redes y servicios adquirida durante primero de ASIR, en proceso de ampliación.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="cpd">
+            <div class="project-top"><div class="icon">🏢</div><span class="tag">CPD</span></div>
+            <h3 data-i18n="project6Title">Mantenimiento de infraestructuras CPD</h3>
+            <p class="muted" data-i18n="project6Text">Formación complementaria en continuidad, mantenimiento preventivo y operación de infraestructuras críticas.</p>
+          </article>
+
+          <article class="card project-card reveal" data-category="sistemas">
+            <div class="project-top"><div class="icon">🧰</div><span class="tag">Soporte</span></div>
+            <h3 data-i18n="project7Title">Soporte técnico, electrónica e informática</h3>
+            <p class="muted" data-i18n="project7Text">Experiencia en reparación, mantenimiento, atención al cliente y diagnóstico de incidencias técnicas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="section-kicker" data-i18n="cvKicker">Currículum Vitae</p>
+            <h2 class="section-title" data-i18n="cvTitle">Versión resumida para candidatura</h2>
+          </div>
+        </div>
+
+        <div class="cv-layout">
+          <aside class="card reveal">
+            <h3 data-i18n="contactTitle">Contacto</h3>
+            <p class="muted">Francisco Haldón Redondo</p>
+            <p class="muted">Huelva, España</p>
+            <p class="muted">Tel. 649 578 774</p>
+            <p class="muted">Email: fhaldon@gmail.com</p>
+            <p><a href="https://www.linkedin.com/in/francisco-hald%C3%B3n-redondo-57b97761" target="_blank" rel="noreferrer">LinkedIn</a></p>
+
+            <h3 style="margin-top: 22px;" data-i18n="trainingTitle">Formación</h3>
+            <ul class="muted">
+              <li data-i18n="training1">1.º de ASIR finalizado.</li>
+              <li data-i18n="training2">Curso de mantenimiento de infraestructuras de un CPD.</li>
+              <li data-i18n="training3">Técnico en Equipos Electrónicos de Consumo.</li>
+              <li data-i18n="training4">Diseño, modelado e impresión 3D.</li>
+              <li data-i18n="training5">Formador de Formadores.</li>
+            </ul>
+
+            <h3 style="margin-top: 22px;" data-i18n="certTitle">Prevención y certificaciones</h3>
+            <ul class="muted">
+              <li>Telco 1 y Telco 2.</li>
+              <li data-i18n="cert2">Riesgo eléctrico.</li>
+              <li data-i18n="cert3">Trabajos en altura.</li>
+              <li data-i18n="cert4">Recurso Preventivo - Nivel Básico.</li>
+              <li data-i18n="cert5">Piloto de drones STS-1 y STS-2.</li>
+            </ul>
+          </aside>
+
+          <article class="card reveal">
+            <h3 data-i18n="summaryTitle">Extracto profesional</h3>
+            <p class="muted" data-i18n="summaryText">
+              Técnico con trayectoria consolidada en instalaciones de telecomunicaciones, electrónica y mantenimiento de redes.
+              Experiencia en despliegues WiFi, FTTH, ADSL, radioenlaces, mediciones de cobertura, gestión documental y coordinación
+              con entidades públicas. Actualmente orientando el perfil hacia sistemas y redes tras finalizar primero de ASIR, con formación
+              complementaria en mantenimiento de infraestructuras de CPD.
+            </p>
+
+            <h3 style="margin-top: 22px;" data-i18n="keyExperienceTitle">Experiencia clave</h3>
+            <ul class="muted">
+              <li data-i18n-html="key1"><strong>Innovaciones Tecnológicas del Sur:</strong> replanteo, preauditoría y mediciones de cobertura WiFi; gestión documental con GLPI y Alfresco.</li>
+              <li data-i18n-html="key2"><strong>Avatel Telecom:</strong> instalación de FTTH, radioenlaces Ubiquiti y equipos Cambium para proyectos WiFi.</li>
+              <li data-i18n-html="key3"><strong>Ubikue:</strong> instalaciones FTTH y radioenlaces; participación en hardware IoT para transmisión de datos.</li>
+              <li data-i18n-html="key4"><strong>COBRA:</strong> instalación de ADSL, telefonía y TV IP para Telefónica Movistar; mantenimiento de red de cobre.</li>
+              <li data-i18n-html="key5"><strong>Electrónica e informática:</strong> reparación, mantenimiento, soporte técnico y atención en punto de venta.</li>
+            </ul>
+
+            <h3 style="margin-top: 22px;" data-i18n="toolsTitle">Herramientas y conocimientos</h3>
+            <div class="tag-row">
+              <span class="tag">Ubiquiti</span>
+              <span class="tag">Cambium</span>
+              <span class="tag">GLPI</span>
+              <span class="tag">Alfresco</span>
+              <span class="tag">Google Workspace</span>
+              <span class="tag">FTTH</span>
+              <span class="tag">ADSL</span>
+              <span class="tag">WiFi</span>
+              <span class="tag">Radioenlaces</span>
+              <span class="tag">Photoshop</span>
+              <span class="tag">Fusion 360</span>
+            </div>
+
+            <div class="download-panel">
+              <button class="btn btn-primary" type="button" id="downloadTxt" data-i18n="downloadTxt">Descargar resumen TXT</button>
+              <button class="btn" type="button" id="copyPhone" data-i18n="copyPhone">Copiar teléfono</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p data-i18n="footer">© <span id="year"></span> Francisco Haldón Redondo. Portfolio y CV profesional.</p>
+    </div>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const languageToggle = document.getElementById('languageToggle');
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme) {
+      root.dataset.theme = savedTheme;
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = nextTheme;
+      localStorage.setItem('theme', nextTheme);
+    });
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const translations = {
+      es: {
+        navProfile: 'Perfil',
+        navSkills: 'Competencias',
+        navExperience: 'Experiencia',
+        navPortfolio: 'Portfolio',
+        navCv: 'CV',
+        eyebrow: '<span class="pulse"></span> Telecomunicaciones · Redes · Electrónica · ASIR',
+        heroTitle: 'Técnico de campo con base sólida en <span class="gradient-text">telecomunicaciones y redes</span>.',
+        heroLead: 'Soy Francisco Haldón Redondo. Cuento con una trayectoria consolidada en instalaciones de telecomunicaciones, electrónica, WiFi, FTTH, ADSL, radioenlaces y soporte técnico de campo. Acabo de terminar primero de <strong>ASIR</strong>, por lo que estoy reforzando mi perfil hacia sistemas, redes, servicios e infraestructuras IT sin perder el enfoque práctico adquirido en entornos reales.',
+        viewExperience: 'Ver experiencia',
+        viewCv: 'Ver CV resumido',
+        print: 'Imprimir / guardar PDF',
+        role: 'Técnico de telecomunicaciones e instalaciones · Electrónica · Redes · ASIR',
+        privacy: 'Sin dirección completa, DNI ni datos personales innecesarios.',
+        profileKicker: 'Perfil profesional',
+        profileTitle: 'Experiencia técnica real y formación actual en sistemas.',
+        stat1Title: 'Años de trayectoria técnica',
+        stat1Text: 'Experiencia en telecomunicaciones, instalaciones, electrónica, soporte y mantenimiento de redes.',
+        stat2Title: 'Formación reciente',
+        stat2Text: 'Primer curso de Administración de Sistemas Informáticos en Red finalizado, con enfoque en redes, sistemas y servicios.',
+        stat3Title: 'Especialización complementaria',
+        stat3Text: 'Formación en mantenimiento de infraestructuras de un Centro de Proceso de Datos.',
+        skillsKicker: 'Competencias',
+        skillsTitle: 'Lo que puedo aportar',
+        skillsText: 'Perfil técnico práctico, con mayor fortaleza en instalaciones y telecomunicaciones. En sistemas y CPD se muestra un nivel en progreso, acorde con haber finalizado primero de ASIR y estar ampliando formación.',
+        skill1: 'Instalaciones de telecomunicaciones',
+        skill3: 'Resolución de incidencias de campo',
+        skill4: 'Redes y sistemas ASIR',
+        skill5: 'Infraestructura CPD',
+        skill6: 'Diseño, imagen y modelado 3D',
+        levelHigh: 'Alto',
+        levelHigh2: 'Alto',
+        levelHigh3: 'Alto',
+        levelMid: 'Inicial / medio',
+        levelTraining: 'En formación',
+        levelComplementary: 'Complementario',
+        experienceKicker: 'Experiencia destacada',
+        experienceTitle: 'Trayectoria más relevante',
+        experienceText: 'Resumen centrado en puestos útiles para telecomunicaciones, redes, soporte técnico y sistemas.',
+        exp1Role: 'Técnico de campo',
+        exp1Item1: 'Replanteo y preauditoría de instalaciones WiFi para proyecto de la Junta de Andalucía.',
+        exp1Item2: 'Mediciones de cobertura y verificación de condiciones técnicas del proyecto.',
+        exp1Item3: 'Gestión documental en plataformas GLPI y Alfresco.',
+        exp1Item4: 'Trabajo de campo orientado a cumplimiento técnico, documentación y coordinación.',
+        exp2Role: 'Instalador y reparador de equipos telefónicos',
+        exp2Place: 'Ayamonte y entorno',
+        exp2Item1: 'Instalación de líneas telefónicas, radioenlaces Ubiquiti y FTTH para WiHu.',
+        exp2Item2: 'Intervenciones en Isla Cristina, La Antilla, Ayamonte y alrededores.',
+        exp2Item3: 'Instalación de equipos Cambium para el programa Wifi4EU en Isla Cristina y Villablanca.',
+        exp2Item4: 'Coordinación con organismos públicos para implantación de instalaciones WiFi.',
+        exp3Role: 'Instalador y reparador de equipos telefónicos',
+        exp3Item1: 'Instalación de líneas telefónicas, radioenlaces Ubiquiti y FTTH.',
+        exp3Item2: 'Soporte técnico de campo en zonas de Huelva, Isla Cristina, La Antilla y Ayamonte.',
+        exp3Item3: 'Participación en desarrollo de hardware para transmisión de datos en tiempo real IoT.',
+        exp4Role: 'Instalador y reparador',
+        exp4Place: 'Huelva y provincia',
+        exp4Item1: 'Instalación de líneas telefónicas, ADSL y Televisión IP para Telefónica Movistar.',
+        exp4Item2: 'Mantenimiento de red de cobre en Huelva y provincia.',
+        exp4Item3: 'Resolución de averías y atención técnica en cliente final.',
+        exp5Role: 'Instalador y reparador de equipos telefónicos',
+        exp5Item1: 'Instalación de líneas telefónicas, Internet y Televisión IP para Telefónica.',
+        exp5Item2: 'Mantenimiento de repetidores de telefonía móvil para Orange.',
+        exp6Role: 'Electrónica, informática y soporte técnico',
+        exp6Item1: 'Instalación, reparación y mantenimiento de equipos Canon como servicio oficial.',
+        exp6Item2: 'Reparación y mantenimiento de equipos informáticos en punto de venta.',
+        exp6Item3: 'Prácticas en reparación de audio, vídeo y pequeños aparatos eléctricos.',
+        portfolioKicker: 'Portfolio técnico',
+        portfolioTitle: 'Áreas de trabajo demostrables',
+        portfolioText: 'Enfocado a lo que ya has hecho y a tu evolución hacia sistemas.',
+        filterAll: 'Todos',
+        filterSystems: 'Sistemas',
+        project1Title: 'Despliegues WiFi y mediciones de cobertura',
+        project1Text: 'Replanteos, preauditorías, comprobaciones técnicas y documentación para instalaciones WiFi.',
+        project2Title: 'Instalación y mantenimiento de conectividad',
+        project2Text: 'Instalación de líneas, resolución de incidencias, mantenimiento de red y soporte en cliente final.',
+        project3Title: 'Radioenlaces Ubiquiti y equipos Cambium',
+        project3Text: 'Instalación y puesta en servicio de equipos de conectividad inalámbrica en proyectos locales.',
+        project4Title: 'Portfolio de prototipos funcionales',
+        project4Text: 'Aplicaciones web creadas en GitHub con ayuda de IA, presentadas como prototipos funcionales con previews automáticas.',
+        externalPortfolio: 'Ver portfolio externo',
+        project5Title: 'Laboratorio de aprendizaje ASIR',
+        project5Text: 'Base en sistemas, redes y servicios adquirida durante primero de ASIR, en proceso de ampliación.',
+        project6Title: 'Mantenimiento de infraestructuras CPD',
+        project6Text: 'Formación complementaria en continuidad, mantenimiento preventivo y operación de infraestructuras críticas.',
+        project7Title: 'Soporte técnico, electrónica e informática',
+        project7Text: 'Experiencia en reparación, mantenimiento, atención al cliente y diagnóstico de incidencias técnicas.',
+        cvKicker: 'Currículum Vitae',
+        cvTitle: 'Versión resumida para candidatura',
+        contactTitle: 'Contacto',
+        trainingTitle: 'Formación',
+        training1: '1.º de ASIR finalizado.',
+        training2: 'Curso de mantenimiento de infraestructuras de un CPD.',
+        training3: 'Técnico en Equipos Electrónicos de Consumo.',
+        training4: 'Diseño, modelado e impresión 3D.',
+        training5: 'Formador de Formadores.',
+        certTitle: 'Prevención y certificaciones',
+        cert2: 'Riesgo eléctrico.',
+        cert3: 'Trabajos en altura.',
+        cert4: 'Recurso Preventivo - Nivel Básico.',
+        cert5: 'Piloto de drones STS-1 y STS-2.',
+        summaryTitle: 'Extracto profesional',
+        summaryText: 'Técnico con trayectoria consolidada en instalaciones de telecomunicaciones, electrónica y mantenimiento de redes. Experiencia en despliegues WiFi, FTTH, ADSL, radioenlaces, mediciones de cobertura, gestión documental y coordinación con entidades públicas. Actualmente orientando el perfil hacia sistemas y redes tras finalizar primero de ASIR, con formación complementaria en mantenimiento de infraestructuras de CPD.',
+        keyExperienceTitle: 'Experiencia clave',
+        key1: '<strong>Innovaciones Tecnológicas del Sur:</strong> replanteo, preauditoría y mediciones de cobertura WiFi; gestión documental con GLPI y Alfresco.',
+        key2: '<strong>Avatel Telecom:</strong> instalación de FTTH, radioenlaces Ubiquiti y equipos Cambium para proyectos WiFi.',
+        key3: '<strong>Ubikue:</strong> instalaciones FTTH y radioenlaces; participación en hardware IoT para transmisión de datos.',
+        key4: '<strong>COBRA:</strong> instalación de ADSL, telefonía y TV IP para Telefónica Movistar; mantenimiento de red de cobre.',
+        key5: '<strong>Electrónica e informática:</strong> reparación, mantenimiento, soporte técnico y atención en punto de venta.',
+        toolsTitle: 'Herramientas y conocimientos',
+        downloadTxt: 'Descargar resumen TXT',
+        copyPhone: 'Copiar teléfono',
+        footer: `© ${new Date().getFullYear()} Francisco Haldón Redondo. Portfolio y CV profesional.`
+      },
+      en: {
+        navProfile: 'Profile',
+        navSkills: 'Skills',
+        navExperience: 'Experience',
+        navPortfolio: 'Portfolio',
+        navCv: 'CV',
+        eyebrow: '<span class="pulse"></span> Telecommunications · Networks · Electronics · ASIR',
+        heroTitle: 'Field technician with a solid background in <span class="gradient-text">telecommunications and networks</span>.',
+        heroLead: 'I am Francisco Haldón Redondo. I have a solid technical background in telecommunications installations, electronics, WiFi, FTTH, ADSL, radio links and field support. I have just completed the first year of <strong>ASIR</strong>, so I am strengthening my profile in systems, networks, services and IT infrastructures while keeping the practical approach gained in real technical environments.',
+        viewExperience: 'View experience',
+        viewCv: 'View CV summary',
+        print: 'Print / save PDF',
+        role: 'Telecommunications and installation technician · Electronics · Networks · ASIR',
+        privacy: 'No full address, national ID or unnecessary personal data included.',
+        profileKicker: 'Professional profile',
+        profileTitle: 'Real technical experience and current systems training.',
+        stat1Title: 'Years of technical experience',
+        stat1Text: 'Experience in telecommunications, installations, electronics, support and network maintenance.',
+        stat2Title: 'Recent training',
+        stat2Text: 'First year of Networked Computer Systems Administration completed, focused on networks, systems and services.',
+        stat3Title: 'Complementary specialisation',
+        stat3Text: 'Training in data centre infrastructure maintenance.',
+        skillsKicker: 'Skills',
+        skillsTitle: 'What I can contribute',
+        skillsText: 'Practical technical profile, strongest in installations and telecommunications. Systems and data centre infrastructure are presented as developing areas, in line with having completed the first year of ASIR and ongoing training.',
+        skill1: 'Telecommunications installations',
+        skill3: 'Field incident resolution',
+        skill4: 'ASIR networks and systems',
+        skill5: 'Data centre infrastructure',
+        skill6: 'Design, image editing and 3D modelling',
+        levelHigh: 'High',
+        levelHigh2: 'High',
+        levelHigh3: 'High',
+        levelMid: 'Entry / intermediate',
+        levelTraining: 'In training',
+        levelComplementary: 'Complementary',
+        experienceKicker: 'Highlighted experience',
+        experienceTitle: 'Most relevant career experience',
+        experienceText: 'Summary focused on roles relevant to telecommunications, networks, technical support and systems.',
+        exp1Role: 'Field technician',
+        exp1Item1: 'Site survey and pre-audit of WiFi installations for a Junta de Andalucía project.',
+        exp1Item2: 'Coverage measurements and verification of project technical requirements.',
+        exp1Item3: 'Document management using GLPI and Alfresco platforms.',
+        exp1Item4: 'Field work focused on technical compliance, documentation and coordination.',
+        exp2Role: 'Telephone equipment installer and repair technician',
+        exp2Place: 'Ayamonte and surrounding area',
+        exp2Item1: 'Installation of telephone lines, Ubiquiti radio links and FTTH for WiHu.',
+        exp2Item2: 'Field interventions in Isla Cristina, La Antilla, Ayamonte and nearby areas.',
+        exp2Item3: 'Installation of Cambium equipment for the Wifi4EU programme in Isla Cristina and Villablanca.',
+        exp2Item4: 'Coordination with public bodies for WiFi installation deployment.',
+        exp3Role: 'Telephone equipment installer and repair technician',
+        exp3Item1: 'Installation of telephone lines, Ubiquiti radio links and FTTH.',
+        exp3Item2: 'Field technical support in Huelva, Isla Cristina, La Antilla and Ayamonte.',
+        exp3Item3: 'Participation in hardware development for real-time IoT data transmission.',
+        exp4Role: 'Installer and repair technician',
+        exp4Place: 'Huelva and province',
+        exp4Item1: 'Installation of telephone lines, ADSL and IPTV for Telefónica Movistar.',
+        exp4Item2: 'Copper network maintenance in Huelva and province.',
+        exp4Item3: 'Fault resolution and technical customer support.',
+        exp5Role: 'Telephone equipment installer and repair technician',
+        exp5Item1: 'Installation of telephone lines, Internet and IPTV for Telefónica.',
+        exp5Item2: 'Maintenance of Orange mobile phone repeaters.',
+        exp6Role: 'Electronics, IT and technical support',
+        exp6Item1: 'Installation, repair and maintenance of Canon equipment as official service provider.',
+        exp6Item2: 'Computer repair and maintenance in a retail environment.',
+        exp6Item3: 'Internship repairing audio, video and small electrical appliances.',
+        portfolioKicker: 'Technical portfolio',
+        portfolioTitle: 'Demonstrable work areas',
+        portfolioText: 'Focused on what I have already done and on my current transition towards systems.',
+        filterAll: 'All',
+        filterSystems: 'Systems',
+        project1Title: 'WiFi deployments and coverage measurements',
+        project1Text: 'Site surveys, pre-audits, technical checks and documentation for WiFi installations.',
+        project2Title: 'Connectivity installation and maintenance',
+        project2Text: 'Line installation, incident resolution, network maintenance and end-customer support.',
+        project3Title: 'Ubiquiti radio links and Cambium equipment',
+        project3Text: 'Installation and commissioning of wireless connectivity equipment in local projects.',
+        project4Title: 'Functional prototype portfolio',
+        project4Text: 'Web applications created on GitHub with AI assistance, presented as functional prototypes with automatic previews.',
+        externalPortfolio: 'View external portfolio',
+        project5Title: 'ASIR learning lab',
+        project5Text: 'Foundation in systems, networks and services gained during the first year of ASIR, currently being expanded.',
+        project6Title: 'Data centre infrastructure maintenance',
+        project6Text: 'Complementary training in continuity, preventive maintenance and critical infrastructure operation.',
+        project7Title: 'Technical support, electronics and IT',
+        project7Text: 'Experience in repair, maintenance, customer support and technical incident diagnosis.',
+        cvKicker: 'Curriculum Vitae',
+        cvTitle: 'Short version for applications',
+        contactTitle: 'Contact',
+        trainingTitle: 'Training',
+        training1: 'First year of ASIR completed.',
+        training2: 'Data centre infrastructure maintenance course.',
+        training3: 'Consumer Electronics Equipment Technician.',
+        training4: '3D design, modelling and printing.',
+        training5: 'Train-the-trainer qualification.',
+        certTitle: 'Health & safety certifications',
+        cert2: 'Electrical risk.',
+        cert3: 'Working at height.',
+        cert4: 'Preventive Resource - Basic Level.',
+        cert5: 'Certified drone pilot STS-1 and STS-2.',
+        summaryTitle: 'Professional summary',
+        summaryText: 'Technician with a solid background in telecommunications installations, electronics and network maintenance. Experience in WiFi, FTTH, ADSL and radio link deployments, coverage measurements, document management and coordination with public entities. Currently moving the profile towards systems and networks after completing the first year of ASIR, with complementary training in data centre infrastructure maintenance.',
+        keyExperienceTitle: 'Key experience',
+        key1: '<strong>Innovaciones Tecnológicas del Sur:</strong> WiFi site surveys, pre-audits and coverage measurements; document management with GLPI and Alfresco.',
+        key2: '<strong>Avatel Telecom:</strong> FTTH installation, Ubiquiti radio links and Cambium equipment for WiFi projects.',
+        key3: '<strong>Ubikue:</strong> FTTH installations and radio links; participation in IoT hardware for data transmission.',
+        key4: '<strong>COBRA:</strong> ADSL, telephone and IPTV installation for Telefónica Movistar; copper network maintenance.',
+        key5: '<strong>Electronics and IT:</strong> repair, maintenance, technical support and retail customer service.',
+        toolsTitle: 'Tools and knowledge',
+        downloadTxt: 'Download TXT summary',
+        copyPhone: 'Copy phone',
+        footer: `© ${new Date().getFullYear()} Francisco Haldón Redondo. Professional portfolio and CV.`
+      }
+    };
+
+    function setLanguage(lang) {
+      const dict = translations[lang];
+      document.documentElement.lang = lang;
+      localStorage.setItem('language', lang);
+      languageToggle.textContent = lang === 'es' ? '🌍 EN' : '🌍 ES';
+      languageToggle.setAttribute('aria-label', lang === 'es' ? 'Cambiar idioma a inglés' : 'Switch language to Spanish');
+
+      document.querySelectorAll('[data-i18n]').forEach((el) => {
+        const key = el.dataset.i18n;
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+        const key = el.dataset.i18nHtml;
+        if (dict[key]) el.innerHTML = dict[key];
+      });
+    }
+
+    languageToggle.addEventListener('click', () => {
+      const current = localStorage.getItem('language') || 'es';
+      setLanguage(current === 'es' ? 'en' : 'es');
+    });
+
+    setLanguage(localStorage.getItem('language') || 'es');
+
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach((element) => observer.observe(element));
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('[data-category]');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        const filter = button.dataset.filter;
+
+        projectCards.forEach((card) => {
+          const shouldShow = filter === 'all' || card.dataset.category === filter;
+          card.style.display = shouldShow ? 'grid' : 'none';
+        });
+      });
+    });
+
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+
+    accordionTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const currentItem = trigger.closest('.accordion-item');
+        const isOpen = currentItem.classList.contains('active');
+
+        accordionItems.forEach((item) => {
+          item.classList.remove('active');
+          const itemTrigger = item.querySelector('.accordion-trigger');
+          const itemIcon = item.querySelector('.accordion-icon');
+          itemTrigger.setAttribute('aria-expanded', 'false');
+          itemIcon.textContent = '+';
+        });
+
+        if (!isOpen) {
+          currentItem.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+          currentItem.querySelector('.accordion-icon').textContent = '−';
+        }
+      });
+    });
+
+    document.getElementById('downloadTxt').addEventListener('click', () => {
+      const content = `Francisco Haldón Redondo
+
+Técnico de telecomunicaciones e instalaciones | Electrónica | Redes | ASIR
+
+Perfil:
+Técnico con trayectoria consolidada en instalaciones de telecomunicaciones, electrónica y mantenimiento de redes. Experiencia en WiFi, FTTH, ADSL, radioenlaces, mediciones de cobertura, gestión documental y coordinación con entidades públicas. Primero de ASIR finalizado y formación complementaria en mantenimiento de infraestructuras de CPD.
+
+Experiencia clave:
+- Innovaciones Tecnológicas del Sur: replanteo, preauditoría, mediciones de cobertura WiFi, GLPI y Alfresco.
+- Avatel Telecom: FTTH, radioenlaces Ubiquiti, equipos Cambium y proyectos Wifi4EU.
+- Ubikue: instalaciones FTTH, radioenlaces y participación en hardware IoT.
+- COBRA: ADSL, telefonía y TV IP para Telefónica Movistar; mantenimiento de red de cobre.
+
+Formación:
+- 1.º de ASIR finalizado.
+- Curso de mantenimiento de infraestructuras de un CPD.
+- Técnico en Equipos Electrónicos de Consumo.
+
+Contacto:
+Tel. 649 578 774
+Email: fhaldon@gmail.com
+LinkedIn: https://www.linkedin.com/in/francisco-hald%C3%B3n-redondo-57b97761
+Portfolio: https://wolcenon.github.io/GithubWebPortfolio/`;
+
+      const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'CV_Francisco_Haldon_Redondo_resumen.txt';
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('copyPhone').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('649 578 774');
+        alert('Teléfono copiado.');
+      } catch (error) {
+        alert('No se pudo copiar automáticamente.');
+      }
+    });
+  </script>
+</body>
+</html>
