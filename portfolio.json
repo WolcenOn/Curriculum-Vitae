@@ -1,0 +1,10 @@
+{
+  "categoria": "Portfolio",
+  "icono": "👤",
+  "etiquetas": ["CV", "curriculum", "perfil", "portfolio"],
+  "descripcion": "Currículum vitae o página de presentación personal y profesional.",
+  "demo": "",
+  "destacado": true,
+  "orden": 14,
+  "ocultar": false
+}
